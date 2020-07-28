@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewer.controller.PictureOverviewController">
+   <children>
+      <SplitPane dividerPositions="0.3193979933110368" layoutX="81.0" layoutY="56.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="200.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TreeView id="treeview" fx:id="dirTree" layoutX="-11.0" prefHeight="398.0" prefWidth="234.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="600.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <BorderPane fx:id="scrollPaneContainer" layoutX="47.0" layoutY="58.0" prefHeight="398.0" prefWidth="404.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <bottom>
+                        <AnchorPane id="anchorpane" prefHeight="21.0" prefWidth="404.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label id="label_btn" fx:id="stateLabel" disable="true" prefHeight="30.0" prefWidth="244.0" text="Label" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                              <ChoiceBox fx:id="sizeChoiceBox" layoutX="389.0" layoutY="5.0" prefHeight="23.0" prefWidth="103.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                     </bottom>
+                     <top>
+                        <HBox id="toolbar" prefHeight="51.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button id="up_btn" fx:id="backToParentFileButton" mnemonicParsing="false" onAction="#backToParentDirectory" prefHeight="38.0" prefWidth="51.0" text="返回">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button id="delete_btn" mnemonicParsing="false" onAction="#menuItemOfDelete" prefHeight="37.0" prefWidth="50.0" text="删除">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button id="ppt_btn" fx:id="slidPlayButton" mnemonicParsing="false" onAction="#pptAction" prefHeight="36.0" prefWidth="51.0" text="PPT">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label id="label_btn" fx:id="pathLabel" prefHeight="23.0" prefWidth="300.0" text="Label" textFill="#4a4343">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="30.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Microsoft YaHei" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </top>
+                     <center>
+                        <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <padding>
+                              <Insets bottom="15.0" />
+                           </padding>
+                           <content>
+                              <AnchorPane fx:id="previewContainer" prefHeight="333.0" prefWidth="76.0">
+                                 <children>
+                                    <FlowPane fx:id="previewPane" hgap="15.0" prefHeight="331.0" prefWidth="394.0" vgap="15.0" AnchorPane.rightAnchor="-0.0">
+                                       <padding>
+                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                       </padding>
+                                    </FlowPane>
+                                 </children>
+                                 <padding>
+                                    <Insets right="20.0" />
+                                 </padding>
+                              </AnchorPane>
+                           </content>
+                           <contextMenu>
+                              <ContextMenu id="contextmenu" fx:id="contextMenu" onAction="#menuItemOfCut">
+                                <items>
+                                  <MenuItem fx:id="copyMenuItem" mnemonicParsing="false" onAction="#menuItemOfCopy" text="复制" />
+                                    <MenuItem fx:id="cutMenuItem" mnemonicParsing="false" text="剪切" />
+                                    <MenuItem fx:id="renameMenuItem" mnemonicParsing="false" onAction="#menuItemOfRename" text="重命名" />
+                                    <MenuItem fx:id="pasteMenuItem" mnemonicParsing="false" onAction="#menuItemOfPaste" text="粘贴" />
+                                    <MenuItem fx:id="selectAllMenuItem" mnemonicParsing="false" onAction="#menuItemOfSelectAll" text="全选" />
+                                    <MenuItem fx:id="openMenuItem" mnemonicParsing="false" onAction="#menuItemOfOpen" text="打开" />
+                                    <MenuItem fx:id="deleteMenuItem" mnemonicParsing="false" onAction="#menuItemOfDelete" text="删除" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </ScrollPane>
+                     </center>
+                  </BorderPane>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+      <Accordion />
+   </children>
+</AnchorPane>

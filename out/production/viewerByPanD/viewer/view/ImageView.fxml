@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="691.0" prefWidth="886.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="691.0" prefWidth="886.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <ToolBar id="toolbar1" fx:id="toolBar" BorderPane.alignment="CENTER">
+              <items>
+                  <Button id="rotate_btn" mnemonicParsing="false" onAction="#rotateAction" prefHeight="45.0" prefWidth="50.0" text="旋转" />
+                  <Button id="beauty_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#beautyAction" prefHeight="44.0" prefWidth="50.0" text="编辑" translateX="20.0" />
+              </items>
+               <padding>
+                  <Insets bottom="5.0" left="30.0" right="20.0" top="5.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ToolBar>
+         </top>
+         <center>
+            <StackPane id="stackpane" fx:id="imagePane" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER" />
+                  <Button id="previousButton" fx:id="previousButton" mnemonicParsing="false" onAction="#previousButtonAction" prefHeight="103.0" prefWidth="65.0" StackPane.alignment="CENTER_LEFT">
+                     <StackPane.margin>
+                        <Insets left="20.0" />
+                     </StackPane.margin>
+                  </Button>
+                  <Button id="nextButton" fx:id="nextButton" mnemonicParsing="false" onAction="#nextButtonAction" prefHeight="153.0" prefWidth="65.0" StackPane.alignment="CENTER_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="20.0" />
+                     </StackPane.margin>
+                  </Button>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

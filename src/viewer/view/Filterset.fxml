@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewer.controller.FilterviewController">
+   <children>
+      <HBox fx:id="toppane" prefHeight="0.0" prefWidth="200.0" />
+      <StackPane id="filterpane" layoutY="16.0" prefHeight="800.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <SplitPane dividerPositions="0.6963927855711423" layoutY="69.0" prefHeight="800.0" prefWidth="1001.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="69.0">
+              <items>
+                <AnchorPane fx:id="leftpane">
+                     <children>
+                        <StackPane alignment="BOTTOM_RIGHT" onScroll="#Scroll" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <BorderPane id="filterpane" fx:id="borderpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <ImageView fx:id="imageview" cache="true" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                                 </center>
+                                 <bottom>
+                                    <Slider fx:id="slider" blockIncrement="0.1" max="1.0" maxWidth="400.0" opacity="0.4" value="0.5" BorderPane.alignment="CENTER">
+                                       <effect>
+                                          <Lighting>
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
+                                       <BorderPane.margin>
+                                          <Insets bottom="40.0" />
+                                       </BorderPane.margin>
+                                    </Slider>
+                                 </bottom>
+                                 <left>
+                                    <Button fx:id="small" mnemonicParsing="false" onAction="#Small" text="Button" visible="false" BorderPane.alignment="CENTER" />
+                                 </left>
+                                 <right>
+                                    <Button fx:id="big" mnemonicParsing="false" onAction="#Big" text="Button" visible="false" BorderPane.alignment="CENTER" />
+                                 </right>
+                              </BorderPane>
+                              <Button id="backBtn" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Close" opacity="0.62" prefHeight="33.0" prefWidth="114.0" text="返回" textFill="#222020" StackPane.alignment="TOP_LEFT">
+                                 <StackPane.margin>
+                                    <Insets left="10.0" top="20.0" />
+                                 </StackPane.margin>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane fx:id="rightpane" maxWidth="-Infinity" minHeight="300.0" minWidth="300.0" prefWidth="300.0" style="-fx-background-color: #9DCBF0;">
+                     <children>
+                        <VBox id="beautyvbox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" text="选择滤镜" textFill="#f0f0f1">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font></Label>
+                              <Group VBox.vgrow="SOMETIMES">
+                                 <children>
+                                    <ScrollPane hbarPolicy="NEVER" layoutX="175.0" layoutY="54.0" maxHeight="405.0" maxWidth="-Infinity" minHeight="0.0" minWidth="-Infinity" prefHeight="405.0" prefWidth="300.0" style="-fx-background-color: #2e2d2d;" vbarPolicy="NEVER">
+                                       <content>
+                                          <GridPane id="beautyvbox" prefHeight="405.0" prefWidth="300.0">
+                                             <children>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Origin" prefHeight="95.0" prefWidth="95.0" style="-fx-background-color: #515456;" text="Button">
+                                                   <graphic>
+                                                      <ImageView fx:id="image1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Overlay" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #515456;" text="Button" GridPane.columnIndex="1">
+                                                   <graphic>
+                                                      <ImageView fx:id="image2" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Sepiatone" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #515456;" text="Button" GridPane.columnIndex="2">
+                                                   <graphic>
+                                                      <ImageView fx:id="image3" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Glow" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #515456;" text="Button" GridPane.rowIndex="2">
+                                                   <graphic>
+                                                      <ImageView fx:id="image4" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Mercury" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #515456;" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                   <graphic>
+                                                      <ImageView fx:id="image5" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Exclusion" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #515456;" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                   <graphic>
+                                                      <ImageView fx:id="image6" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Arctic" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #515456;" text="Button" GridPane.rowIndex="4">
+                                                   <graphic>
+                                                      <ImageView fx:id="image7" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Denim" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #515456;" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                   <graphic>
+                                                      <ImageView fx:id="image8" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Button contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#Neo" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #515456;" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                                   <graphic>
+                                                      <ImageView fx:id="image9" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="10.0" left="2.5" right="2.5" top="10.0" />
+                                                   </GridPane.margin></Button>
+                                                <Label id="beautylabel" alignment="CENTER" prefHeight="35.0" prefWidth="100.0" text="Original" textFill="#f0f0f1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label id="beautylabel" alignment="CENTER" prefHeight="35.0" prefWidth="100.0" text="Overlay" textFill="#f0f0f1" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label id="beautylabel" alignment="CENTER" prefHeight="35.0" prefWidth="100.0" text="Sepiatone" textFill="#f0f0f1" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label id="beautylabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="100.0" text="Glow" textFill="#eff0f2" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label id="beautylabel" alignment="CENTER" prefHeight="35.0" prefWidth="100.0" text="Mercury" textFill="#f0f0f1" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label id="beautylabel" alignment="CENTER" prefHeight="35.0" prefWidth="100.0" text="Exclusion" textFill="#f0f0f1" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label id="beautylabel" alignment="CENTER" prefHeight="35.0" prefWidth="100.0" text="Arctic" textFill="#f0f0f1" GridPane.rowIndex="5">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label id="beautylabel" alignment="CENTER" prefHeight="35.0" prefWidth="100.0" text="Denim" textFill="#f0f0f1" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label id="beautylabel" alignment="CENTER" prefHeight="35.0" prefWidth="100.0" text="Neo" textFill="#f0f0f1" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="101.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="101.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="103.0" minWidth="10.0" prefWidth="98.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="102.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="70.0" minHeight="1.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="139.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="202.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="151.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                    <GridPane layoutX="175.0" layoutY="324.0" maxHeight="100.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="300.0" translateY="150.0">
+                                       <children>
+                                          <Button id="save_btn" alignment="CENTER" contentDisplay="CENTER" maxHeight="75.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Save" prefHeight="40.0" prefWidth="130.0" text="保存" textFill="#f8f8f8" GridPane.columnIndex="1" GridPane.vgrow="SOMETIMES">
+                                             <graphic>
+                                                <ImageView fitHeight="31.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true" />
+                                             </graphic>
+                                             <GridPane.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </GridPane.margin>
+                                             <font>
+                                                <Font name="Microsoft YaHei" size="16.0" />
+                                             </font>
+                                          </Button>
+                                          <Button id="save_btn" fx:id="SaveButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="100.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Copy" opacity="0.9" prefHeight="40.0" prefWidth="130.0" text="保存副本" textFill="#fbfcff">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                             <graphic>
+                                                <ImageView fitHeight="38.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                                             </graphic>
+                                             <GridPane.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                              </Group>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <Group>
+               <children>
+                  <VBox alignment="CENTER" layoutX="3.0" layoutY="13.824861526489258">
+                     <children>
+                        <ProgressIndicator fx:id="indicator" layoutX="25.0" layoutY="24.0" maxHeight="50.0" maxWidth="50.0" prefHeight="50.0" prefWidth="50.0" visible="false" />
+                        <Label fx:id="savelabel" layoutX="3.0" layoutY="70.0" text="正在保存.." textFill="WHITE" visible="false">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </Group>
+            <AnchorPane fx:id="Existpane" maxHeight="100.0" maxWidth="200.0" prefHeight="100.0" prefWidth="200.0" visible="false">
+               <children>
+                  <TextArea editable="false" maxHeight="100.0" maxWidth="200.0" prefHeight="100.0" prefWidth="200.0" text="糟糕！&#10;我们无法保存该文件">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextArea>
+                  <Button layoutX="100.0" layoutY="64.0" mnemonicParsing="false" text="关闭" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>
